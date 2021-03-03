@@ -1,0 +1,218 @@
+.textStyle{
+	font-weight: bold;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+$format-text: (
+  	weight: bold
+);
+
+@mixin btnStyle{
+	border:none;
+	background-color: $buttonColor;
+	color:white;
+	border-radius: 3px;
+	padding:13px 44px;
+	font-size: 1.1rem;
+	font-weight: bold;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+@mixin logoBlock($color){
+	display: flex;
+	p{
+		color:$color;
+		margin-top: 3px;
+		margin-left: 15px;
+		display: inline-flex;
+		flex-direction:column;
+		justify-content:flex-start;
+		font-family: $textFont;
+		font-weight: bold;
+		font-size:1.5rem;
+	}
+	span{
+		margin-top: 5px;
+		font-size:0.65rem;
+		font-weight: normal;
+		align-self:center;
+	}
+	img{
+		width:50px;
+		height: 50px;
+	}
+}
+@mixin linkStyle($size, $color){
+	font-size: $size;
+	color:$color;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+body{
+	background-color: $backgroundOfBody;
+}
+.header{
+	background-image: $headerImage;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top 50% left 0;
+	border-bottom-right-radius: 37%;
+}
+
+.header-wrap{
+	width: 80%;
+	margin: auto;
+	padding:20px 0 175px 0;
+	.landing-logo{
+        @include logoBlock($headerTextColor);
+    }
+
+	.header_heading{
+		padding:70px 0 60px 0;
+		font-size:4.5rem;
+		@extend .textStyle;
+		color:$headerTextColor;
+		width: 500px;
+		&::after{
+            content: "awesome";
+            background-color: $backgroundTextColor;
+            position: absolute;
+            left: 10.6%;
+        }
+	}
+	.header_text{
+		font-family: $textFont;
+		width:650px;
+		line-height: 1.5;
+		color:$headerTextColor;
+		margin-bottom:60px;
+	}
+	.header_button{
+		@include btnStyle;
+	}
+	.login{
+		@include linkStyle(1.25rem, white);
+		margin-left: 150px;
+	}
+}
+
+.section{
+	padding-top:50px;
+	.section_text{
+		text-align:center;
+		font-size:2.5rem;
+		font-family: 'Hind', sans-serif;
+		font-weight: map-get($format-text, weight);
+		color:$headerTextColor;
+		&::after{
+			content: "adventure";
+            background-color: $backgroundTextColor;
+            position: absolute;
+            left: 51%;
+		}
+	}
+}
+.section_card_wrap{
+	max-width:1120px;
+	margin:0 auto;
+	padding-top:40px;
+}
+.section_card{
+	display: flex;
+	background-color: $cardBackgroundColor;
+	border-radius: 5px;
+	&:not(:last-child){
+		margin-bottom: 25px;
+	}	
+	padding:20px;
+	img{
+		height:290px;
+		width:auto;
+		border-radius:7px;
+	}
+	.section_card_right_container{
+		max-width:470px;
+		margin:0 auto;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items:center;
+		padding-top:52px;
+	}
+	.section_card_heading{
+		color:white;
+		font-family: 'Hind', sans-serif;
+		font-weight: bold;
+		font-size:1.5rem;
+	}
+	.section_card_text{
+		color:$cardTextColor;
+		text-align:justify;
+		font-family: $textFont;
+		line-height:1.5;
+		margin-top: 40px;
+	}
+	.section_link{
+		margin-top: 25px;
+		@include linkStyle(1rem, $cardTextColor);
+	}
+}
+.section_banner{
+	max-width:1200px;
+	margin:140px auto 0 auto;
+	background-image: linear-gradient(to right, $bottomGradientStart , $bottomGradientEnd);
+	border-radius:5px;
+	
+	.section_banner_button{
+		float:right;
+		margin-top: 45px;
+		margin-right: 160px;
+		@include btnStyle;
+	}
+	.section_banner_text_wrap{
+		display: inline-block;
+		margin:30px 0 45px 160px;
+		.section_banner_heading{
+			color:$headerTextColor;
+			@extend .textStyle;
+			font-size:1.8rem;
+			margin-bottom: 25px;
+			&::after{
+				content: "start";
+				background-color: $backgroundTextColor;
+				position: absolute;
+				left: 28.2%;
+			}
+		}
+		.section_banner_text{
+			color:$cardTextColor;
+			font-family: $textFont;
+		}
+	}
+}
+.footer{
+	position: absolute;
+	width:100%;
+	z-index: -1;
+	margin-top: -70px;
+	background-color: $cardBackgroundColor;
+}
+.footer-wrap{
+	max-width: 1540px;
+	margin: 130px auto 90px auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.landing-logo{
+		@include logoBlock($cardTextColor);
+	}	
+	.footer_text{
+		max-width: 290px;
+		line-height: 1.2;
+		color:$cardTextColor;
+		font-family: $textFont;
+		font-size:0.9rem;
+	}
+	.footer-cr{
+		color:$cardTextColor;
+		font-family: $textFont;
+		font-size:1rem;
+	}
+}
